@@ -41,6 +41,14 @@ EXAMPLES = '''
 
 - debug:
     var: ansible_facts.services
+    
+- debug:
+    msg: update-motd.service is stopped
+   when: "'stopped' in ansible_facts.services['update-motd.service']['state']"
+
+- debug:
+    msg: update-motd.service exists
+   when: "'update-motd.service' in ansible_facts.services"
 
 '''
 
